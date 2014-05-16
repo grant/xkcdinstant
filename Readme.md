@@ -1,6 +1,6 @@
 # [xkcd instant](grant.github.io/xkcdinstant)
 
-A simple xkcd searcher and viewer.
+Instantly look up and reference xkcd comics.
 
 ## example
 

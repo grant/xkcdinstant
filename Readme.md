@@ -1,4 +1,4 @@
-# [xkcd instant](grant.github.io/xkcdinstant)
+# [xkcd instant](http://grant.github.io/xkcdinstant)
 
 Instantly look up and reference xkcd comics.
 

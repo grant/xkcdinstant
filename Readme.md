@@ -1,4 +1,4 @@
-# [xkcd instant](grant.github.io/xkcdinstant)
+# [xkcd instant](http://grant.github.io/xkcdinstant)
 
 A simple xkcd searcher and viewer.
 

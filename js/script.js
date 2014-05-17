@@ -1,8 +1,16 @@
 $(function () {
-  console.log('search');
-  $(function () {
-    // var wall = new freewall('#container');
 
+  var xkcdData;
+
+  // Get the xkcd data
+  function getData () {
+    $.getJSON('/data/all.json', function (data) {
+      xkcdData = data;
+    });
+  }
+
+  // Setup the images
+  function setupImages () {
     var temp = "<div class='brick' style='width:{width}px;'><img src='i/photo/{index}.jpg' width='100%'></div>";
     var w = 1, h = 1, html = '', limitItem = 49;
     for (var i = 0; i < limitItem; ++i) {
@@ -26,5 +34,5 @@ $(function () {
     images.find('img').load(function() {
       wall.fitWidth();
     });
-  });
+  }
 });

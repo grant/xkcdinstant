@@ -1,12 +1,29 @@
 $(function () {
 
   var xkcdData;
+  var currentQuery = '';
 
   // Get the xkcd data
   function getData () {
     $.getJSON('/data/all.json', function (data) {
       xkcdData = data;
+      search($search.val());
     });
+  }
+
+  // Search algorithm
+  // Assumes that the xkcd data is loaded
+  function search (query) {
+    if (query !== currentQuery) {
+      // actually do a search
+      var keys = Object.keys(xkcdData);
+      for (var i = 0; i < keys.length; ++i) {
+        var comic = xkcdData[keys[i]];
+        console.log(comic);
+      }
+
+      query = currentQuery;
+    }
   }
 
   // Setup the images
@@ -35,4 +52,17 @@ $(function () {
       wall.fitWidth();
     });
   }
+
+  // UI logic
+  $search = $('.search');
+  $(window).on('keydown', function (e) {
+    $search.focus();
+  }).on('keyup', function (e) {
+    if (xkcdData) {
+      search($search.val());
+    }
+  });
+
+  // Runner
+  getData();
 });

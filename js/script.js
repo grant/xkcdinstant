@@ -6,7 +6,7 @@ $(function () {
 
   // Get the xkcd data
   function getData () {
-    $.getJSON('/data/all.json', function (data) {
+    $.getJSON('../data/all.json', function (data) {
       xkcdData = data;
       search($search.val());
     });

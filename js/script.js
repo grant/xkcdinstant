@@ -14,13 +14,26 @@ $(function () {
   // Search algorithm
   // Assumes that the xkcd data is loaded
   function search (query) {
+    // results is an array of ids that match
+    var results = [];
+
     if (query !== currentQuery) {
       // actually do a search
       var keys = Object.keys(xkcdData);
       for (var i = 0; i < keys.length; ++i) {
-        var comic = xkcdData[keys[i]];
-        console.log(comic);
+        var id = keys[i];
+        var comic = xkcdData[id];
+
+        var title = comic.title;
+        var transcript = comic.transcript;
+
+        if (title.indexOf(query) !== -1 || transcript.indexOf(query) !== -1) {
+          results.push(id);
+        }
       }
+
+      // Do something with the results
+      console.log(results);
 
       query = currentQuery;
     }

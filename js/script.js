@@ -1,5 +1,6 @@
 $(function () {
 
+  var $container = $('#container');
   var xkcdData;
   var currentQuery = '';
 
@@ -33,9 +34,29 @@ $(function () {
       }
 
       // Do something with the results
-      console.log(results);
+      display(results);
 
       query = currentQuery;
+    }
+  }
+
+  // Displays the comics from the results
+  // The param is a list of comic ids to display
+  function display (ids) {
+    // Get the data
+    ids = ids.splice(0, 10);
+    var data = [];
+    for (var i in ids) {
+      var id = ids[i];
+      data.push(xkcdData[id]);
+    }
+
+    // Display the comics
+    $container.html('');
+    for (var i in data) {
+      var imgSrc = data[i].img;
+      var imgTag = "<img src='"+imgSrc+"'/>";
+      $container.append(imgTag);
     }
   }
 

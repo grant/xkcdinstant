@@ -8,7 +8,9 @@ newjson = dict()
 for filename in os.listdir(datalocation):
   fname = filename.split('.')[0]
   f = open(datalocation + filename, 'r')
-  newjson[fname] = (f.readlines()[0])
+  loadedline = f.readlines()[0]
+  if loadedline[0:1] == '{': # Making sure the line is valid json
+  	newjson[fname] = json.loads(loadedline)
 
 outfile = open('out.json', 'w')
 outfile.write(json.dumps(newjson))

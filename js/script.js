@@ -10,7 +10,6 @@ $(function () {
     $.getJSON('data/all.json', function (data) {
       xkcdData = data;
       search($search.val());
-      setupImages();
     });
   }
 
@@ -60,11 +59,8 @@ $(function () {
       var imgTag = "<div class='brick'><img src='"+imgSrc+"' width='100%'></div>";
       $container.append(imgTag);
     }
-  }
 
-  // Setup the images
-  function setupImages () {
-
+    $container.freetile();
   }
 
   // UI logic

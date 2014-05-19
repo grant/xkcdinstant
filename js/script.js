@@ -55,8 +55,10 @@ $(function () {
     // Display the comics
     $container.html('');
     for (var i in data) {
-      var imgSrc = data[i].img;
-      var imgTag = "<div class='brick'><img src='"+imgSrc+"' width='100%'></div>";
+      var comic = data[i];
+      var src = comic.img;
+      var alt = $('<div/>').text(comic.alt).html().replace(/'/g, '&#39;'); // html encode text
+      var imgTag = "<div class='brick'><img class='comicImg' src='"+src+"' title='"+alt+"'></div>";
       $container.append(imgTag);
     }
 
